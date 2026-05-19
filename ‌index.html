@@ -1,555 +1,526 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Rafael & Galilea | Nuestra Boda</title>
-
-<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-
-<style>
-
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400&family=Parisienne&family=Playfair+Display:ital,wght@0,400;1,400&display=swap');
-
-:root{
-    --cream:#f8f3ee;
-    --white:#ffffff;
-    --black:#2a2623;
-    --taupe:#b6a18f;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    overflow-x:hidden;
-    font-family:'Montserrat', sans-serif;
-    background-color: var(--cream);
-    color:var(--black);
-}
-
-/* ===================================================== */
-/* ================= INTRO ANIMATION =================== */
-/* ===================================================== */
-
-.intro{
-    position:fixed;
-    inset:0;
-    background: linear-gradient(180deg, #f8f3ee, #efe2d7);
-    z-index:999999;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    animation:introFade 1.3s ease forwards;
-    animation-delay:4s;
-}
-
-@keyframes introFade{
-    to{ opacity:0; visibility:hidden; }
-}
-
-.envelope-wrapper{ position:relative; width:300px; height:200px; }
-.big-envelope{
-    position:absolute; width:100%; height:100%;
-    background:#dcc8bb; clip-path:polygon(0 0, 50% 55%, 100% 0, 100% 100%, 0 100%);
-    z-index:3; bottom:0;
-}
-.letter{
-    position:absolute; width:90%; height:80%; background:white;
-    left:5%; bottom:10px; z-index:2; display:flex; flex-direction:column;
-    justify-content:center; align-items:center;
-    animation:pullLetter 2s cubic-bezier(.77,0,.18,1) forwards;
-}
-@keyframes pullLetter{ to{ transform:translateY(-100px); } }
-.save{ font-family:'Great Vibes', cursive; font-size:2rem; color:#7d624f; }
-
-/* ===================================================== */
-/* ==================== HERO SECTION =================== */
-/* ===================================================== */
-
-.hero {
-    width: 100%;
-    max-width: 500px; 
-    margin: 0 auto;
-    min-height: 100vh;
-    background: white; 
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 80px 40px;
-}
-
-.initial-r, .initial-g {
-    position: absolute;
-    font-family: 'Great Vibes', cursive;
-    font-size: 8.5rem;
-    color: rgba(42, 38, 35, 0.07);
-    line-height: 1;
-    z-index: 1;
-}
-
-.initial-r { top: 4%; left: 8%; }
-.initial-g { bottom: 4%; right: 8%; }
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    width: 100%;
-    margin: auto 0;
-}
-
-.hero-top-text {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 0.95rem;
-    letter-spacing: 2px;
-    margin-bottom: 60px;
-    color: #777;
-}
-
-.hero-names-main {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3.2rem;
-    letter-spacing: 1px;
-    font-weight: 300;
-    line-height: 1.2;
-    margin-bottom: 60px;
-    color: var(--black);
-}
-
-.hero-names-main span {
-    display: block;
-    font-family: 'Great Vibes', cursive;
-    font-size: 2.2rem;
-    color: #8c6f5a;
-    margin: 10px 0;
-}
-
-.hero-date-romans {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
-    letter-spacing: 8px;
-    color: #444;
-    display: inline-block;
-    padding: 15px 0;
-    position: relative;
-    width: 80%;
-    max-width: 260px;
-}
-
-.hero-date-romans::before, .hero-date-romans::after {
-    content: '';
-    position: absolute;
-    left: 0; right: 0;
-    height: 0.5px;
-    background: rgba(182, 161, 143, 0.4);
-}
-.hero-date-romans::before { top: 0; }
-.hero-date-romans::after { bottom: 0; }
-
-/* ===================================================== */
-/* ================= REST OF SECTIONS ================== */
-/* ===================================================== */
-
-section {
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 80px 30px;
-    text-align: center;
-    background: white;
-}
-
-.site-content {
-    opacity: 0;
-    animation: showSite 1.5s ease forwards;
-    animation-delay: 3.8s;
-}
-
-@keyframes showSite { to { opacity: 1; } }
-
-.story h2, .schedule h2, .addresses h2, .details h2 { 
-    font-size: 3rem; 
-    font-family: 'Great Vibes', cursive; 
-    margin-bottom: 20px; 
-}
-
-.story p { line-height: 1.8; font-size: 0.95rem; color: #444; padding: 0 20px; }
-
-.quote-parallax {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 4 / 5; 
-    background-image: url('nosotros.jpeg'); 
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 40px 0;
-    overflow: hidden;
-}
-
-.quote-parallax::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(255, 255, 255, 0.3); 
-    z-index: 1;
-}
-
-.quote-content {
-    position: relative;
-    z-index: 2;
-    padding: 20px;
-    text-align: center;
-    max-width: 85%;
-}
-
-.quote-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 1.3rem;
-    color: #2a2623;
-    margin-bottom: 10px;
-    line-height: 1.4;
-    text-shadow: 0 0 10px rgba(255,255,255,0.5);
-}
-
-.quote-ref {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
-    color: #555;
-    letter-spacing: 2px;
-}
-
-/* ITINERARIO (SCHEDULE) */
-.timeline {
-    position: relative;
-    margin: 40px auto 0 auto;
-    padding: 0;
-    width: 100%;
-    list-style: none;
-}
-.timeline::before {
-    content: '';
-    position: absolute;
-    top: 0; bottom: 0; left: 50%;
-    width: 1px; background: var(--taupe);
-}
-.timeline-item {
-    position: relative;
-    margin-bottom: 40px;
-}
-.timeline-time {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 5px;
-}
-.timeline-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
-    font-weight: 500;
-    letter-spacing: 1px;
-}
-.timeline-desc {
-    font-size: 0.85rem;
-    color: #777;
-    margin-top: 4px;
-}
-
-/* ===================================================== */
-/* ========= DRESS CODE - EFECTO HOJA ROTA ============ */
-/* ===================================================== */
-
-.dress-code-wrapper {
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 60px 20px;
-    background-color: #ffffff;
-    display: flex;
-    justify-content: center;
-}
-
-.torn-paper-card {
-    background-color: #fcf9f5;
-    width: 100%;
-    padding: 60px 30px;
-    position: relative;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-    
-    clip-path: polygon(
-        0% 4%, 5% 2%, 10% 5%, 15% 3%, 20% 6%, 25% 2%, 30% 5%, 35% 3%, 40% 6%, 45% 2%, 50% 5%, 55% 3%, 60% 6%, 65% 2%, 70% 5%, 75% 3%, 80% 6%, 85% 2%, 90% 5%, 95% 3%, 100% 5%, 
-        100% 95%, 95% 97%, 90% 94%, 85% 96%, 80% 93%, 75% 96%, 70% 94%, 65% 97%, 60% 94%, 55% 96%, 50% 93%, 45% 96%, 40% 94%, 35% 97%, 30% 94%, 25% 96%, 20% 93%, 15% 96%, 10% 94%, 5% 97%, 0% 95%
-    );
-}
-
-.torn-paper-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; height: 8px;
-    background: linear-gradient(to bottom, rgba(214, 201, 188, 0.4), transparent);
-    pointer-events: none;
-}
-
-.torn-paper-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0; height: 8px;
-    background: linear-gradient(to top, rgba(214, 201, 188, 0.4), transparent);
-    pointer-events: none;
-}
-
-.dress-title-alt {
-    font-family: 'Great Vibes', cursive;
-    font-size: 3.5rem;
-    color: #2a2623;
-    margin-bottom: 5px;
-}
-
-.divider-small {
-    width: 40px;
-    height: 1px;
-    background: #b6a18f;
-    margin: 15px auto;
-}
-
-.dress-subtitle-alt {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem;
-    color: #555;
-    margin-top: 20px;
-}
-
-.dress-theme-alt {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 2.2rem;
-    color: #5f4b3a;
-    font-weight: 400;
-    margin-bottom: 25px;
-}
-
-.color-palette-alt {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin: 25px auto 35px auto;
-    max-width: 320px;
-}
-
-.palette-box {
-    width: 48px;
-    height: 48px;
-    border-radius: 8px;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02), 0 4px 10px rgba(0,0,0,0.04);
-}
-
-.pb1 { background-color: #eae3da; border: 1px solid #dfd5c8; }
-.pb2 { background-color: #dbcaa6; }
-.pb3 { background-color: #bfa895; }
-.pb4 { background-color: #8a715e; }
-.pb5 { background-color: #59493f; }
-
-.dress-note-alt {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.05rem;
-    color: #666;
-    line-height: 1.6;
-    max-width: 90%;
-    margin: 0 auto;
-}
-
-/* ===================================================== */
-/* ============= UBICACIONES - OPCIÓN 1 ================ */
-/* ===================================================== */
-
-.location-container-alt {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    margin-top: 40px;
-    padding: 0 10px;
-}
-
-.location-card-alt {
-    position: relative;
-    background: #fcfbf9;
-    border: 1px solid #efeae4;
-    padding: 40px 25px;
-    overflow: hidden;
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
-    z-index: 1;
-}
-
-.card-bg-effect {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, #fdfbf7 0%, #f5ece3 100%);
-    opacity: 0;
-    z-index: -1;
-    transition: opacity 0.4s ease;
-}
-
-.location-card-alt:hover, .location-card-alt:active {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(182, 161, 143, 0.15);
-    border-color: #dcc8bb;
-}
-
-.location-card-alt:hover .card-bg-effect, .location-card-alt:active .card-bg-effect {
-    opacity: 1;
-}
-
-.card-body-alt {
-    position: relative;
-    z-index: 2;
-}
-
-.location-type-alt {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 1.3rem;
-    color: #8c6f5a;
-    margin-bottom: 8px;
-}
-
-.location-name-alt {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem;
-    font-weight: 500;
-    letter-spacing: 1px;
-    color: #2a2623;
-    margin-bottom: 12px;
-}
-
-.location-address-alt {
-    font-size: 0.85rem;
-    color: #666;
-    line-height: 1.6;
-    max-width: 85%;
-    margin: 0 auto 25px auto;
-}
-
-.btn-wrap-alt {
-    position: relative;
-    display: inline-block;
-}
-
-.map-btn-alt {
-    display: inline-block;
-    padding: 10px 28px;
-    background: #2a2623;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-    position: relative;
-    overflow: hidden;
-    transition: background 0.3s ease;
-}
-
-.map-btn-alt::before {
-    content: '';
-    position: absolute;
-    top: 0; left: -100%;
-    width: 50%; height: 100%;
-    background: linear-gradient(to right, transparent, rgba(255,255,255,0.25), transparent);
-    transform: skewX(-25deg);
-}
-
-@keyframes shine-effect {
-    100% { left: 150%; }
-}
-
-.location-card-alt:hover .map-btn-alt::before, .location-card-alt:active .map-btn-alt::before {
-    animation: shine-effect 0.8s ease;
-}
-
-.line-draw-alt {
-    width: 0;
-    height: 1px;
-    background: #b6a18f;
-    margin: 8px auto 0 auto;
-    transition: width 0.4s ease;
-}
-
-.location-card-alt:hover .line-draw-alt, .location-card-alt:active .line-draw-alt {
-    width: 100%;
-}
-
-/* DETALLES / PREGUNTAS FRECUENTES */
-.detail-item {
-    margin-top: 35px;
-    padding: 0 10px;
-}
-.detail-q {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 1.2rem;
-    color: #333;
-    margin-bottom: 8px;
-}
-.detail-a {
-    font-size: 0.9rem;
-    color: #666;
-    line-height: 1.6;
-}
-
-.divider {
-    width: 60px;
-    height: 1px;
-    background: #b6a18f;
-    margin: 30px auto;
-}
-
-.countdown { background: #fdfaf7; }
-.timer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 30px; }
-.timer-box { font-size: 2rem; font-family: 'Cormorant Garamond', serif; border-bottom: 1px solid #d2c2b6; }
-.timer-label { font-size: 0.65rem; margin-top: 8px; text-transform: uppercase; letter-spacing: 1px; }
-
-.rsvp-btn {
-    display: inline-block;
-    background: #1a1a1a;
-    color: white;
-    padding: 16px 40px;
-    text-decoration: none;
-    letter-spacing: 2px;
-    font-size: 0.8rem;
-    margin-top: 30px;
-}
-
-.footer { padding-bottom: 100px; }
-.footer h2 { font-family: 'Parisienne', cursive; font-size: 3.5rem; }
-
-@media(max-width: 480px) {
-    .initial-r, .initial-g { font-size: 6.5rem; } 
-    .hero { padding: 60px 25px; }
-    .hero-names-main { font-size: 2.6rem; }
-    .story, .schedule, .addresses, .details { padding-left: 0; padding-right: 0; }
-    .quote-parallax { margin: 30px 0; }
-    .palette-box { width: 42px; height: 42px; }
-    .dress-title-alt { font-size: 3rem; }
-    .dress-theme-alt { font-size: 1.9rem; }
-    .location-card-alt { padding: 35px 20px; }
-    .location-name-alt { font-size: 1.6rem; }
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rafael & Galilea | Nuestra Boda</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400&family=Parisienne&family=Playfair+Display:ital,wght@0,400;1,400&display=swap');
+
+        :root {
+            --cream: #f8f3ee;
+            --white: #ffffff;
+            --black: #2a2623;
+            --taupe: #b6a18f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow-x: hidden;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cream);
+            color: var(--black);
+        }
+
+        .intro {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(180deg, #f8f3ee, #efe2d7);
+            z-index: 999999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: introFade 1.3s ease forwards;
+            animation-delay: 4s;
+        }
+
+        @keyframes introFade {
+            to { opacity: 0; visibility: hidden; }
+        }
+
+        .envelope-wrapper { position: relative; width: 300px; height: 200px; }
+        .big-envelope {
+            position: absolute; width: 100%; height: 100%;
+            background: #dcc8bb; clip-path: polygon(0 0, 50% 55%, 100% 0, 100% 100%, 0 100%);
+            z-index: 3; bottom: 0;
+        }
+        .letter {
+            position: absolute; width: 90%; height: 80%; background: white;
+            left: 5%; bottom: 10px; z-index: 2; display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            animation: pullLetter 2s cubic-bezier(.77,0,.18,1) forwards;
+        }
+        @keyframes pullLetter { to { transform: translateY(-100px); } }
+        .save { font-family: 'Great Vibes', cursive; font-size: 2rem; color: #7d624f; }
+
+        .hero {
+            width: 100%;
+            max-width: 500px; 
+            margin: 0 auto;
+            min-height: 100vh;
+            background: white; 
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 80px 40px;
+        }
+
+        .initial-r, .initial-g {
+            position: absolute;
+            font-family: 'Great Vibes', cursive;
+            font-size: 8.5rem;
+            color: rgba(42, 38, 35, 0.07);
+            line-height: 1;
+            z-index: 1;
+        }
+
+        .initial-r { top: 4%; left: 8%; }
+        .initial-g { bottom: 4%; right: 8%; }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            width: 100%;
+            margin: auto 0;
+        }
+
+        .hero-top-text {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+            margin-bottom: 60px;
+            color: #777;
+        }
+
+        .hero-names-main {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.2rem;
+            letter-spacing: 1px;
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 60px;
+            color: var(--black);
+        }
+
+        .hero-names-main span {
+            display: block;
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.2rem;
+            color: #8c6f5a;
+            margin: 10px 0;
+        }
+
+        .hero-date-romans {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            letter-spacing: 8px;
+            color: #444;
+            display: inline-block;
+            padding: 15px 0;
+            position: relative;
+            width: 80%;
+            max-width: 260px;
+        }
+
+        .hero-date-romans::before, .hero-date-romans::after {
+            content: '';
+            position: absolute;
+            left: 0; right: 0;
+            height: 0.5px;
+            background: rgba(182, 161, 143, 0.4);
+        }
+        .hero-date-romans::before { top: 0; }
+        .hero-date-romans::after { bottom: 0; }
+
+        section {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 80px 30px;
+            text-align: center;
+            background: white;
+        }
+
+        .site-content {
+            opacity: 0;
+            animation: showSite 1.5s ease forwards;
+            animation-delay: 3.8s;
+        }
+
+        @keyframes showSite { to { opacity: 1; } }
+
+        .story h2, .schedule h2, .addresses h2, .details h2 { 
+            font-size: 3rem; 
+            font-family: 'Great Vibes', cursive; 
+            margin-bottom: 20px; 
+        }
+
+        .story p { line-height: 1.8; font-size: 0.95rem; color: #444; padding: 0 20px; }
+
+        .quote-parallax {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 5; 
+            background-image: url('nosotros.jpeg'); 
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 40px 0;
+            overflow: hidden;
+        }
+
+        .quote-parallax::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.3); 
+            z-index: 1;
+        }
+
+        .quote-content {
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+            text-align: center;
+            max-width: 85%;
+        }
+
+        .quote-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: #2a2623;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+        }
+
+        .quote-ref {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: #555;
+            letter-spacing: 2px;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 40px auto 0 auto;
+            padding: 0;
+            width: 100%;
+            list-style: none;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0; bottom: 0; left: 50%;
+            width: 1px; background: var(--taupe);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        .timeline-time {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        .timeline-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        .timeline-desc {
+            font-size: 0.85rem;
+            color: #777;
+            margin-top: 4px;
+        }
+
+        .dress-code-wrapper {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+        }
+
+        .torn-paper-card {
+            background-color: #fcf9f5;
+            width: 100%;
+            padding: 60px 30px;
+            position: relative;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            clip-path: polygon(
+                0% 4%, 5% 2%, 10% 5%, 15% 3%, 20% 6%, 25% 2%, 30% 5%, 35% 3%, 40% 6%, 45% 2%, 50% 5%, 55% 3%, 60% 6%, 65% 2%, 70% 5%, 75% 3%, 80% 6%, 85% 2%, 90% 5%, 95% 3%, 100% 5%, 
+                100% 95%, 95% 97%, 90% 94%, 85% 96%, 80% 93%, 75% 96%, 70% 94%, 65% 97%, 60% 94%, 55% 96%, 50% 93%, 45% 96%, 40% 94%, 35% 97%, 30% 94%, 25% 96%, 20% 93%, 15% 96%, 10% 94%, 5% 97%, 0% 95%
+            );
+        }
+
+        .torn-paper-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 8px;
+            background: linear-gradient(to bottom, rgba(214, 201, 188, 0.4), transparent);
+            pointer-events: none;
+        }
+
+        .torn-paper-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0; height: 8px;
+            background: linear-gradient(to top, rgba(214, 201, 188, 0.4), transparent);
+            pointer-events: none;
+        }
+
+        .dress-title-alt {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            color: #2a2623;
+            margin-bottom: 5px;
+        }
+
+        .divider-small {
+            width: 40px;
+            height: 1px;
+            background: #b6a18f;
+            margin: 15px auto;
+        }
+
+        .dress-subtitle-alt {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: #555;
+            margin-top: 20px;
+        }
+
+        .dress-theme-alt {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 2.2rem;
+            color: #5f4b3a;
+            font-weight: 400;
+            margin-bottom: 25px;
+        }
+
+        .color-palette-alt {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 25px auto 35px auto;
+            max-width: 320px;
+        }
+
+        .palette-box {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02), 0 4px 10px rgba(0,0,0,0.04);
+        }
+
+        .pb1 { background-color: #eae3da; border: 1px solid #dfd5c8; }
+        .pb2 { background-color: #dbcaa6; }
+        .pb3 { background-color: #bfa895; }
+        .pb4 { background-color: #8a715e; }
+        .pb5 { background-color: #59493f; }
+
+        .dress-note-alt {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            color: #666;
+            line-height: 1.6;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        .location-container-alt {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 40px;
+            padding: 0 10px;
+        }
+
+        .location-card-alt {
+            position: relative;
+            background: #fcfbf9;
+            border: 1px solid #efeae4;
+            padding: 40px 25px;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+            z-index: 1;
+        }
+
+        .card-bg-effect {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #fdfbf7 0%, #f5ece3 100%);
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.4s ease;
+        }
+
+        .location-card-alt:hover, .location-card-alt:active {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(182, 161, 143, 0.15);
+            border-color: #dcc8bb;
+        }
+
+        .location-card-alt:hover .card-bg-effect, .location-card-alt:active .card-bg-effect {
+            opacity: 1;
+        }
+
+        .card-body-alt {
+            position: relative;
+            z-index: 2;
+        }
+
+        .location-type-alt {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: #8c6f5a;
+            margin-bottom: 8px;
+        }
+
+        .location-name-alt {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #2a2623;
+            margin-bottom: 12px;
+        }
+
+        .location-address-alt {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.6;
+            max-width: 85%;
+            margin: 0 auto 25px auto;
+        }
+
+        .btn-wrap-alt {
+            position: relative;
+            display: inline-block;
+        }
+
+        .map-btn-alt {
+            display: inline-block;
+            padding: 10px 28px;
+            background: #2a2623;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.3s ease;
+        }
+
+        .map-btn-alt::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.25), transparent);
+            transform: skewX(-25deg);
+        }
+
+        @keyframes shine-effect {
+            100% { left: 150%; }
+        }
+
+        .location-card-alt:hover .map-btn-alt::before, .location-card-alt:active .map-btn-alt::before {
+            animation: shine-effect 0.8s ease;
+        }
+
+        .line-draw-alt {
+            width: 0;
+            height: 1px;
+            background: #b6a18f;
+            margin: 8px auto 0 auto;
+            transition: width 0.4s ease;
+        }
+
+        .location-card-alt:hover .line-draw-alt, .location-card-alt:active .line-draw-alt {
+            width: 100%;
+        }
+
+        .detail-item {
+            margin-top: 35px;
+            padding: 0 10px;
+        }
+        .detail-q {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .detail-a {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .divider {
+            width: 60px;
+            height: 1px;
+            background: #b6a18f;
+            margin: 30px auto;
+        }
+
+        .countdown { background: #fdfaf7; }
+        .timer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 30px; }
+        .timer-box { font-size: 2rem; font-family: 'Cormorant Garamond', serif; border-bottom: 1px solid #d2c2b6; }
+        .timer-label { font-size: 0.65rem; margin-top: 8px; text-transform: uppercase; letter-spacing: 1px; }
+
+        .rsvp-btn {
+            display: inline-block;
+            background: #1a1a1a;
+            color: white;
+            padding: 16px 40px;
+            text-decoration: none;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            margin-top: 30px;
+        }
+
+        .footer { padding-bottom: 100px; }
+        .footer h2 { font-family: 'Parisienne', cursive; font-size: 3.5rem; }
+
+        @media(max-width: 480px) {
+            .initial-r, .initial-g { font-size: 6.5rem; } 
+            .hero { padding: 60px 25px; }
+            .hero-names-main { font-size: 2.6rem; }
+            .story, .schedule, .addresses, .details { padding-left: 0; padding-right: 0; }
+            .quote-parallax { margin: 30px 0; }
+            .palette-box { width: 42px; height: 42px; }
+            .dress-title-alt { font-size: 3rem; }
+            .dress-theme-alt { font-size: 1.9rem; }
+            .location-card-alt { padding: 35px 20px; }
+            .location-name-alt { font-size: 1.6rem; }
+        }
+    </style>
 </head>
-
 <body>
 
 <div class="intro">
@@ -563,174 +534,158 @@ section {
 </div>
 
 <div class="site-content">
-
-<section class="hero">
-    <div class="initial-r" data-aos="fade-down" data-aos-delay="200">R</div>
-    
-    <div class="hero-content" data-aos="fade-up" data-aos-duration="1400">
-        <div class="hero-top-text">
-            Hoy comienza nuestro para siempre
+    <section class="hero">
+        <div class="initial-r" data-aos="fade-down" data-aos-delay="200">R</div>
+        
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1400">
+            <div class="hero-top-text">Hoy comienza nuestro para siempre</div>
+            <div class="hero-names-main">
+                Rafael
+                <span>&</span>
+                Galilea
+            </div>
+            <div class="hero-date-romans">XXVIII . XI . MMXXVI</div>
         </div>
 
-        <div class="hero-names-main">
-            Rafael
-            <span>&</span>
-            Galilea
-        </div>
+        <div class="initial-g" data-aos="fade-up" data-aos-delay="400">G</div>
+    </section>
 
-        <div class="hero-date-romans">
-            XXVIII . XI . MMXXVI
+    <section class="schedule" data-aos="fade-up">
+        <h2>El Itinerario</h2>
+        <div class="divider"></div>
+        <ul class="timeline">
+            <li class="timeline-item">
+                <div class="timeline-time">2:00 PM</div>
+                <div class="timeline-title">Ceremonia Civil</div>
+                <div class="timeline-desc">Puntualidad de 30 min antes frente al recinto.</div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-time">4:00 PM</div>
+                <div class="timeline-title">Sesión Fotográfica</div>
+                <div class="timeline-desc">¡Una sonrisa junto a los novios!</div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-time">6:00 PM</div>
+                <div class="timeline-title">Cóctel de Bienvenida</div>
+                <div class="timeline-desc">Momento de reunirnos y brindar juntos.</div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-time">8:00 PM</div>
+                <div class="timeline-title">Cena y Recepción</div>
+                <div class="timeline-desc">¡Que comience la gran fiesta!</div>
+            </li>
+        </ul>
+    </section>
+
+    <div class="dress-code-wrapper" data-aos="fade-up">
+        <div class="torn-paper-card">
+            <h2 class="dress-title-alt">Dress Code</h2>
+            <div class="divider-small"></div>
+            <p class="dress-subtitle-alt">The wedding theme is</p>
+            <div class="dress-theme-alt">Old money</div>
+            <div class="color-palette-alt">
+                <div class="palette-box pb1"></div>
+                <div class="palette-box pb2"></div>
+                <div class="palette-box pb3"></div>
+                <div class="palette-box pb4"></div>
+                <div class="palette-box pb5"></div>
+            </div>
+            <p class="dress-note-alt">
+                White is reserved for the bride -<br>
+                thank you for understanding!
+            </p>
         </div>
     </div>
 
-    <div class="initial-g" data-aos="fade-up" data-aos-delay="400">G</div>
-</section>
+    <section class="addresses" data-aos="fade-up">
+        <h2>Ubicaciones</h2>
+        <div class="divider"></div>
+        <div class="location-container-alt">
+            <div class="location-card-alt" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-bg-effect"></div>
+                <div class="card-body-alt">
+                    <div class="location-type-alt">Ceremonia Civil</div>
+                    <div class="location-name-alt">Palacio Municipal</div>
+                    <div class="location-address-alt">Centro Histórico, San Juan del Río, Qro.</div>
+                    <div class="btn-wrap-alt">
+                        <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3743.4354245903964!2d-99.9983944!3d20.38555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d30bc989f665fb%3A0xc3f6efbe95eb730!2sPalacio%20Municipal%20de%20San%20Juan%20del%20R%C3%ADo!5e0!3m2!1ses-419!2smx!4v1715469442767!5m2!1ses-419!2smx" target="_blank" class="map-btn-alt">
+                            <span>COMO LLEGAR</span>
+                        </a>
+                        <div class="line-draw-alt"></div>
+                    </div>
+                </div>
+            </div>
 
-<section class="schedule" data-aos="fade-up">
-    <h2>El Itinerario</h2>
-    <div class="divider"></div>
-    <ul class="timeline">
-        <li class="timeline-item">
-            <div class="timeline-time">2:00 PM</div>
-            <div class="timeline-title">Ceremonia Civil</div>
-            <div class="timeline-desc">Puntualidad de 30 min antes frente al recinto.</div>
-        </li>
-        <li class="timeline-item">
-            <div class="timeline-time">4:00 PM</div>
-            <div class="timeline-title">Sesión Fotográfica</div>
-            <div class="timeline-desc">¡Una sonrisa junto a los novios!</div>
-        </li>
-        <li class="timeline-item">
-            <div class="timeline-time">6:00 PM</div>
-            <div class="timeline-title">Cóctel de Bienvenida</div>
-            <div class="timeline-desc">Momento de reunirnos y brindar juntos.</div>
-        </li>
-        <li class="timeline-item">
-            <div class="timeline-time">8:00 PM</div>
-            <div class="timeline-title">Cena y Recepción</div>
-            <div class="timeline-desc">¡Que comience la gran fiesta!</div>
-        </li>
-    </ul>
-</section>
-
-<div class="dress-code-wrapper" data-aos="fade-up">
-    <div class="torn-paper-card">
-        <h2 class="dress-title-alt">Dress Code</h2>
-        <div class="divider-small"></div>
-        
-        <p class="dress-subtitle-alt">The wedding theme is</p>
-        <div class="dress-theme-alt">Old money</div>
-        
-        <div class="color-palette-alt">
-            <div class="palette-box pb1"></div>
-            <div class="palette-box pb2"></div>
-            <div class="palette-box pb3"></div>
-            <div class="palette-box pb4"></div>
-            <div class="palette-box pb5"></div>
-        </div>
-        
-        <p class="dress-note-alt">
-            White is reserved for the bride -<br>
-            thank you for understanding!
-        </p>
-    </div>
-</div>
-
-<section class="addresses" data-aos="fade-up">
-    <h2>Ubicaciones</h2>
-    <div class="divider"></div>
-    
-    <div class="location-container-alt">
-        <div class="location-card-alt" data-aos="fade-up" data-aos-delay="100">
-            <div class="card-bg-effect"></div>
-            <div class="card-body-alt">
-                <div class="location-type-alt">Ceremonia Civil</div>
-                <div class="location-name-alt">Palacio Municipal</div>
-                <div class="location-address-alt">Centro Histórico, San Juan del Río, Qro.</div>
-                <div class="btn-wrap-alt">
-                    <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3743.4354245903964!2d-99.9983944!3d20.38555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d30bc989f665fb%3A0xc3f6efbe95eb730!2sPalacio%20Municipal%20de%20San%20Juan%20del%20R%C3%ADo!5e0!3m2!1ses-419!2smx!4v1715469442767!5m2!1ses-419!2smx" target="_blank" class="map-btn-alt">
-                        <span>COMO LLEGAR</span>
-                    </a>
-                    <div class="line-draw-alt"></div>
+            <div class="location-card-alt" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-bg-effect"></div>
+                <div class="card-body-alt">
+                    <div class="location-type-alt">Recepción</div>
+                    <div class="location-name-alt">Jardín de Eventos Domaine</div>
+                    <div class="location-address-alt">Domicilio Conocido, San Juan del Río, Qro.</div>
+                    <div class="btn-wrap-alt">
+                        <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3743.4354245903964!2d-99.9983944!3d20.38555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d30bc989f665fb%3A0xc3f6efbe95eb730!2sPalacio%20Municipal%20de%20San%20Juan%20del%20R%C3%ADo!5e0!3m2!1ses-419!2smx!4v1715469442767!5m2!1ses-419!2smx" target="_blank" class="map-btn-alt">
+                            <span>COMO LLEGAR</span>
+                        </a>
+                        <div class="line-draw-alt"></div>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="location-card-alt" data-aos="fade-up" data-aos-delay="200">
-            <div class="card-bg-effect"></div>
-            <div class="card-body-alt">
-                <div class="location-type-alt">Recepción</div>
-                <div class="location-name-alt">Jardín de Eventos Domaine</div>
-                <div class="location-address-alt">Domicilio Conocido, San Juan del Río, Qro.</div>
-                <div class="btn-wrap-alt">
-                    <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3743.4354245903964!2d-99.9983944!3d20.38555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d30bc989f665fb%3A0xc3f6efbe95eb730!2sPalacio%20Municipal%20de%20San%20Juan%20del%20R%C3%ADo!5e0!3m2!1ses-419!2smx!4v1715469442767!5m2!1ses-419!2smx" target="_blank" class="map-btn-alt">
-                        <span>COMO LLEGAR</span>
-                    </a>
-                    <div class="line-draw-alt"></div>
-                </div>
-            </div>
+    <section class="details" data-aos="fade-up">
+        <h2>Detalles Importantes</h2>
+        <div class="divider"></div>
+        <div class="detail-item">
+            <div class="detail-q">¿Hay opciones de hospedaje cerca?</div>
+            <div class="detail-a">Sí, contamos con convenios en hoteles cercanos al recinto. Contacta con nosotros si necesitas recomendaciones de reserva.</div>
         </div>
-    </div>
-</section>
+        <div class="detail-item">
+            <div class="detail-q">¿El menú contempla opciones especiales?</div>
+            <div class="detail-a">Si requieres un menú vegano, vegetariano o tienes alguna alergia severa, por favor infórmanos al confirmar tu asistencia.</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-q">¿Se permiten niños?</div>
+            <div class="detail-a">Hemos planeado una recepción exclusivamente para adultos. Esperamos que puedas disfrutar de esta noche libre con nosotros.</div>
+        </div>
+    </section>
 
-<section class="details" data-aos="fade-up">
-    <h2>Detalles Importantes</h2>
-    <div class="divider"></div>
-    
-    <div class="detail-item">
-        <div class="detail-q">¿Hay opciones de hospedaje cerca?</div>
-        <div class="detail-a">Sí, contamos con convenios en hoteles cercanos al recinto. Contacta con nosotros si necesitas recomendaciones de reserva.</div>
-    </div>
+    <section class="countdown" data-aos="fade-up">
+        <h2 style="font-family:'Great Vibes', cursive; font-size: 2.5rem;">Faltan solo...</h2>
+        <div class="timer-grid">
+            <div><div id="days" class="timer-box">00</div><div class="timer-label">Días</div></div>
+            <div><div id="hours" class="timer-box">00</div><div class="timer-label">Horas</div></div>
+            <div><div id="minutes" class="timer-box">00</div><div class="timer-label">Min</div></div>
+            <div><div id="seconds" class="timer-box">00</div><div class="timer-label">Seg</div></div>
+        </div>
+    </section>
 
-    <div class="detail-item">
-        <div class="detail-q">¿El menú contempla opciones especiales?</div>
-        <div class="detail-a">Si requieres un menú vegano, vegetariano o tienes alguna alergia severa, por favor infórmanos al confirmar tu asistencia.</div>
-    </div>
+    <section class="rsvp" data-aos="fade-up">
+        <h2 style="font-family:'Cormorant Garamond', serif; font-size: 2.5rem;">Confirmación</h2>
+        <p style="margin-top: 15px;">Agradecemos confirmar tu asistencia antes del 28 de octubre.</p>
+        <a href="https://wa.me/524271278213" class="rsvp-btn">CONFIRMAR POR WHATSAPP</a>
+    </section>
 
-    <div class="detail-item">
-        <div class="detail-q">¿Se permiten niños?</div>
-        <div class="detail-a">Hemos planeado una recepción exclusivamente para adultos. Esperamos que puedas disfrutar de esta noche libre con nosotros.</div>
-    </div>
-</section>
-
-<section class="countdown" data-aos="fade-up">
-    <h2 style="font-family:'Great Vibes', cursive; font-size: 2.5rem;">Faltan solo...</h2>
-    <div class="timer-grid">
-        <div><div id="days" class="timer-box">00</div><div class="timer-label">Días</div></div>
-        <div><div id="hours" class="timer-box">00</div><div class="timer-label">Horas</div></div>
-        <div><div id="minutes" class="timer-box">00</div><div class="timer-label">Min</div></div>
-        <div><div id="seconds" class="timer-box">00</div><div class="timer-label">Seg</div></div>
-    </div>
-</section>
-
-<section class="rsvp" data-aos="fade-up">
-    <h2 style="font-family:'Cormorant Garamond', serif; font-size: 2.5rem;">Confirmación</h2>
-    <p style="margin-top: 15px;">Agradecemos confirmar tu asistencia antes del 28 de octubre.</p>
-    <a href="https://wa.me/524271278213" class="rsvp-btn">CONFIRMAR POR WHATSAPP</a>
-</section>
-
-<section class="footer">
-    <h2>Thank You</h2>
-    <p style="margin-top:20px; letter-spacing: 3px; font-size: 0.8rem;">RAFAEL & GALILEA</p>
-</section>
-
+    <section class="footer">
+        <h2>Thank You</h2>
+        <p style="margin-top:20px; letter-spacing: 3px; font-size: 0.8rem;">RAFAEL & GALILEA</p>
+    </section>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
-AOS.init({ duration:1200, once:true });
+    AOS.init({ duration:1200, once:true });
 
-/* COUNTDOWN */
-const weddingDate = new Date("Nov 28, 2026 18:00:00").getTime();
-setInterval(function(){
-    const now = new Date().getTime();
-    const distance = weddingDate - now;
-    document.getElementById("days").innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24));
-    document.getElementById("hours").innerHTML = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    document.getElementById("minutes").innerHTML = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    document.getElementById("seconds").innerHTML = Math.floor((distance % (1000 * 60)) / 1000);
-}, 1000);
+    /* COUNTDOWN */
+    const weddingDate = new Date("Nov 28, 2026 18:00:00").getTime();
+    setInterval(function(){
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+        document.getElementById("days").innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24));
+        document.getElementById("hours").innerHTML = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        document.getElementById("minutes").innerHTML = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        document.getElementById("seconds").innerHTML = Math.floor((distance % (1000 * 60)) / 1000);
+    }, 1000);
 </script>
-
 </body>
 </html>
